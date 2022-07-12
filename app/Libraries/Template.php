@@ -5,8 +5,6 @@ namespace App\Libraries;
 class Template {
 	private $meta = [];
 	private $login = true;
-	private $header = "header";
-	private $footer = "footer";
 
 	public function __construct() {
 	}
@@ -14,24 +12,21 @@ class Template {
 	public function view($path, $page, $data = [], $permission = "public") {
 		if ($permission == "public" || is_allowed($permission)) {
 
+			// Add the meta deta of the page
+			$data["meta"] = $this->meta;
+
 			// Load the content and draw the webpage
 			$content = view($path, $data);
 
+			// Based on the environment return the webpage normally in development or ...
+			// compress webpage in production or testing
 			return (ENVIRONMENT == "development") ? $content : $this->sanitize($content);
 		} else {
 		}
 	}
 
-	public function header($name) {
-		$this->header = $name;
-	}
-
-	public function footer($name) {
-		$this->footer = $name;
-	}
-
 	public function meta($name, $value = "") {
-		$meta[$name] = $value;
+		$this->meta[$name] = $value;
 	}
 
 	private function sanitize($content) {

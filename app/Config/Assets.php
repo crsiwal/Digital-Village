@@ -7,12 +7,15 @@ use CodeIgniter\Config\BaseConfig;
 class Assets extends BaseConfig {
 
 	public $css = [
-		["name" => "bootstrap", "position" => "head", "path" => "bootstrap/bootstrap.min"],
-		["name" => "lighttheme", "position" => "head", "path" => "theme.min"],
+		// ["name" => "bootstrap", "position" => "head", "path" => "bootstrap/bootstrap.min"],
+		["name" => "bootstrap", "position" => "head", "path" => "core/theme"],
+		["name" => "customstyle", "position" => "head", "path" => "core/custom"],
 	];
 
 	public $js = [
-		["name" => "bootstrap", "position" => "foot", "path" => "bootstrap/bootstrap.min"],
+		["name" => "bootstrapjs", "position" => "foot", "path" => "jquery/3.6.0.min"],
+		["name" => "bootstrapjs", "position" => "foot", "path" => "bootstrap/bootstrap.min"],
+		["name" => "themejs", "position" => "foot", "path" => "core/theme"],
 	];
 
 	public $minifycss = [];

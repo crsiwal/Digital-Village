@@ -9,14 +9,23 @@
 	<link rel="shortcut icon" href="https://htmlstream.com/preview/front-dashboard-v2.0/favicon.ico" />
 	<!-- Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-	<?= $this->include('admin/layouts/inc/meta.php'); ?>
-	<?= $this->include('admin/layouts/inc/higherAssets.php'); ?>
+	<?= $this->include('admin/layouts/inc/meta'); ?>
+	<?= $this->include('admin/layouts/inc/higherAssets'); ?>
 </head>
 
-<body>
-	<?= $this->renderSection('content'); ?>
-	<?= $this->include('admin/layouts/inc/lowerAssets.php'); ?>
-	<?= $this->include('admin/layouts/inc/modals.php'); ?>
+<body class="">
+	<!-- loader Start -->
+	<div id="loading">
+		<div class="loader simple-loader">
+			<div class="loader-body"></div>
+		</div>
+	</div>
+	<!-- loader END -->
+	<div class="wrapper">
+		<?= $this->renderSection('content'); ?>
+		<?= $this->include('admin/layouts/inc/lowerAssets'); ?>
+		<?= $this->include('admin/layouts/inc/modals'); ?>
+	</div>
 </body>
 
 </html>
